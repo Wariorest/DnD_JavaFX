@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" minHeight="350.0" minWidth="720.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dnd.dnd.DndController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <AnchorPane fx:id="" prefHeight="308.0" prefWidth="680.0">
+         <children>
+            <Label layoutX="37.0" layoutY="14.0" text="Character info">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label layoutX="37.0" layoutY="50.0" text="Name" />
+            <TextField fx:id="tfName" layoutX="75.0" layoutY="46.0" prefHeight="26.0" prefWidth="117.0" />
+            <Label layoutX="37.0" layoutY="95.0" prefHeight="18.0" prefWidth="32.0" text="Race" />
+            <Label layoutX="35.0" layoutY="145.0" prefHeight="18.0" prefWidth="32.0" text="Class" />
+            <Label fx:id="lbStr" layoutX="280.0" layoutY="57.0" prefHeight="18.0" prefWidth="157.0" text="STR" />
+            <Label fx:id="lbDex" layoutX="280.0" layoutY="74.0" prefHeight="18.0" prefWidth="158.0" text="DEX" />
+            <Label fx:id="lbCon" layoutX="280.0" layoutY="92.0" prefHeight="18.0" prefWidth="158.0" text="CON" />
+            <Label fx:id="lbInt" layoutX="280.0" layoutY="110.0" prefHeight="18.0" prefWidth="158.0" text="INT" />
+            <Label fx:id="lbWis" layoutX="280.0" layoutY="128.0" prefHeight="18.0" prefWidth="158.0" text="WIS" />
+            <Label fx:id="lbCha" layoutX="280.0" layoutY="146.0" prefHeight="18.0" prefWidth="158.0" text="CHA" />
+            <Label layoutX="280.0" layoutY="14.0" text="Attributes">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="375.0" layoutY="15.0" mnemonicParsing="false" onAction="#generateStats" text="Generate" />
+            <Button layoutX="382.0" layoutY="186.0" mnemonicParsing="false" onAction="#retAttributes" text="Return" />
+            <Button layoutX="279.0" layoutY="186.0" mnemonicParsing="false" text="Save" />
+            <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" text="Generate character" />
+            <Button layoutX="528.0" layoutY="253.0" mnemonicParsing="false" text="Save JSON" />
+            <ListView layoutX="464.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" />
+            <ChoiceBox fx:id="cbClass" layoutX="71.0" layoutY="141.0" prefHeight="26.0" prefWidth="121.0" />
+            <ChoiceBox fx:id="cbRace" layoutX="71.0" layoutY="91.0" prefHeight="26.0" prefWidth="122.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
