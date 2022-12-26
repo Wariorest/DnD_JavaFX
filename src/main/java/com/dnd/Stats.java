@@ -4,6 +4,7 @@ import com.dnd.visitor.DataElement;
 import com.dnd.visitor.DataElementsVisitor;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class Stats implements DataElement {
@@ -43,6 +44,16 @@ public class Stats implements DataElement {
         System.out.println("Intelligence: " + this.stats.get("Intelligence"));
         System.out.println("Wisdom: " + this.stats.get("Wisdom"));
         System.out.println("Charisma: " + this.stats.get("Charisma"));
+    }
+    public Memento save(){
+        return  new Memento(stats);
+    }
+    private class Memento{
+        private Map<String, Integer> stats;
+
+        Memento(Map<String, Integer> stats){
+            this.stats = stats;
+        }
     }
 
     @Override

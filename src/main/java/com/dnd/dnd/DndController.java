@@ -1,13 +1,20 @@
 package com.dnd.dnd;
 
 import com.dnd.Stats;
+import com.dnd.memento.CareTaker;
+import com.dnd.visitor.DataElement;
+import com.dnd.Character;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DndController implements Initializable {
@@ -118,6 +125,56 @@ public class DndController implements Initializable {
     }
 
 
+    @FXML
+    public void runMemento(){
+        if(model.getStats() != null){
+            model.setCareTaker(new CareTaker());
+            model.getCareTaker().add(model.getStats().save());
+            lbAlert.setText("Stats saved!");
+        }else {
+            lbAlert.setText("Generate stats!");
+        }
+    }
+    private void saveJSON() throws IOException {
+        String str = "[\n";
+
+        for(Character cha : model.getItems()){
+            model.getJsonObject().clear();
+            List<DataElement> list = new ArrayList<>();
+
+            list.add(cha);
+            list.add(cha.getDndClass());
+            list.add(cha.getRace());
+            list.add(cha.getAttributes());
+
+            for(DataElement elem : list){
+                model.setJsonObject(elem.accept(model.getVisitor()));
+            }
+
+            str += model.getJsonObject().toJSONString();
+            str += "\n";
+
+            if(model.getItems().indexOf(cha) != model.getItems().size()-1){
+                str += ",";
+            }
+        }
+
+        str += "\n]";
+
+        FileWriter file = new FileWriter("output.json");
+        file.write(str);
+        file.close();
+        lbAlert.setText("JSON Saved!");
+    }
+
+    @FXML
+    private void onSaveJSONAction() {
+        try {
+            this.saveJSON();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

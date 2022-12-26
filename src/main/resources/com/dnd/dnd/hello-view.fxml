@@ -33,9 +33,9 @@
             </Label>
             <Button layoutX="375.0" layoutY="15.0" mnemonicParsing="false" onAction="#generateStats" text="Generate" />
             <Button layoutX="382.0" layoutY="186.0" mnemonicParsing="false" onAction="#retAttributes" text="Return" />
-            <Button layoutX="279.0" layoutY="186.0" mnemonicParsing="false" text="Save" />
+            <Button layoutX="279.0" layoutY="186.0" mnemonicParsing="false" onAction="#runMemento" text="Save" />
             <Button layoutX="515.0" layoutY="15.0" mnemonicParsing="false" onAction="#generateCharacter" text="Generate character" />
-            <Button layoutX="528.0" layoutY="253.0" mnemonicParsing="false" text="Save JSON" />
+            <Button layoutX="528.0" layoutY="253.0" mnemonicParsing="false" onAction="#onSaveJSONAction" text="Save JSON" />
             <ListView fx:id="lvCharactersList" layoutX="464.0" layoutY="46.0" prefHeight="200.0" prefWidth="200.0" />
             <ChoiceBox fx:id="cbClass" layoutX="71.0" layoutY="141.0" prefHeight="26.0" prefWidth="121.0" />
             <ChoiceBox fx:id="cbRace" layoutX="71.0" layoutY="91.0" prefHeight="26.0" prefWidth="122.0" />

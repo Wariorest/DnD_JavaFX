@@ -6,19 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CareTaker {
-    protected List<Stats> mementoList = new ArrayList<Stats>();
-    static int saveId = 0;
-
-    protected void add(Stats state){
-        mementoList.add(state);
-        System.out.println("\nState saved. Save id: " + saveId);
-        System.out.println("--------------");
-        System.out.println();
-        saveId++;
+    private List<Object> mementoList = new ArrayList<Object>();
+    static int saveID=0;
+    public void add(Object obj){
+        mementoList.add(obj);
+        System.out.println("State save " + saveID + "\n");
+        saveID++;
     }
 
-    protected Stats get(int index){
-        System.out.println("\nLoading from save id" + index + "...");
+    public Object get(int index){
+        System.out.println("Loading stats from save "+ index);
         return mementoList.get(index);
+    }
+    public Object getLast(){
+
+        return mementoList.get(mementoList.size() - 1);
+    }
+    public boolean isEmptyList(){
+        if(mementoList.isEmpty())
+            return true;
+
+        return false;
     }
 }
